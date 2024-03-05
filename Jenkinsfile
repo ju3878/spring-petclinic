@@ -51,7 +51,6 @@ pipeline {
             }
         }      
 
-/*
         stage('Push Docker Image') {
             steps {
                 echo "Push Docker Image to ECR"
@@ -71,6 +70,7 @@ pipeline {
                 }
             }
         }
+/*
         stage('Clean Up Docker Images on Jenkins Server') {
             steps {
                 echo 'Cleaning up unused Docker images on Jenkins server'
