@@ -13,7 +13,7 @@ pipeline {
         ECR_REPOSITORY = "257307634175.dkr.ecr.ap-northeast-2.amazonaws.com"
         ECR_DOCKER_IMAGE = "${ECR_REPOSITORY}/${DOCKER_IMAGE_NAME}"
     }
-
+/* 주석으로 추가 합니다. */
     stages {
         stage('Git Clone') {
             steps {
