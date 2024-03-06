@@ -12,4 +12,3 @@ export IMAGE=${ECR_DOCKER_IMAGE};
 export TAG=${ECR_DOCKER_TAG};
 cd /home/ubuntu/deploy
 docker-compose up -d --build;
-# docker-compose -f /home/ubuntu/deploy/docker-compose.yml up -d --build;
