@@ -70,7 +70,6 @@ pipeline {
                 }
             }
         }
-/*
         stage('Clean Up Docker Images on Jenkins Server') {
             steps {
                 echo 'Cleaning up unused Docker images on Jenkins server'
@@ -111,8 +110,6 @@ pipeline {
                     '''
                     sleep(10) // sleep 10s
             }
-        }
-*/
-        
+        }        
     }
 }
