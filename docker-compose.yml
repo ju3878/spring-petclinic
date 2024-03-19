@@ -1,7 +1,7 @@
 mysql:
   image: mysql:5.7
   hostname: tourlist
-  container_name: mysql
+  container_name: jenkins
   ports:
     - "3306:3306"
   environment:
