@@ -10,5 +10,4 @@ mysql:
     - MYSQL_DATABASE=petclinic
   volumes:
 /* 주석으로 추가 합니다.     - "./conf.d:/etc/mysql/conf.d:ro"  */
-    - mysql_data:/var/lib/mysql
-    - mysql_config:/etc/mysql/conf.d
+    - /var/lib/mysql:/var/lib/mysql
