@@ -13,13 +13,13 @@ pipeline {
         ECR_REPOSITORY = "257307634175.dkr.ecr.ap-northeast-2.amazonaws.com"
         ECR_DOCKER_IMAGE = "${ECR_REPOSITORY}/${DOCKER_IMAGE_NAME}"
     }
-/* 주석으로 추가 합니다. */
+/* 주석으로 추가 합니다.   , credentialsId: 'github_access_token'    */
     stages {
         stage('Git Clone') {
             steps {
                 echo 'Git Clone'
                 git url: 'https://github.com/ju3878/spring-petclinic.git',
-                branch: 'wavefront', credentialsId: 'github_access_token'
+                branch: 'wavefront'
             }
             post {
                 success {
