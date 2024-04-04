@@ -1,0 +1,48 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project01-dep
+spec:
+  selector:
+    matchLabels:
+      app: petclinic
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+      - name: spring-petclinic
+        image: 257307634175.dkr.ecr.ap-northeast-2.amazonaws.com/project01-ecr:IMAGE_VERSION
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: project01-svc
+spec:
+  selector:
+    app: petclinic
+  ports:
+  - protocol: TCP
+    nodePort: 30100
+    port: 80
+    targetPort: 8080
+  type: NodePort
+
+---
+
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: project01-tgb
+spec:
+  serviceRef:
+    name: project01-svc
+    port: 80
+  targetGroupARN: arn:aws:elasticloadbalancing:ap-northeast-2:257307634175:targetgroup/project01-eks/9c63c70f603d25c5
